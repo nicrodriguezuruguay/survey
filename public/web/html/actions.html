@@ -1,0 +1,47 @@
+<div class="content-header">
+  <h1>Actions</h1>
+  <ul class="content-header-buttons">
+    <li><a ng-click="">New action</a></li>
+  </ul>
+</div>
+
+<!--
+<form ng-submit="saveAction()"
+      class="content-form">
+  <div>
+    <label>Name</label>
+    <input ng-model="newAction.name"
+           ng-disabled="savingAction" />
+  </div>
+  <div>
+    <label>Slug</label>
+    <input ng-model="newAction.slug"
+           ng-disabled="savingAction"/>
+  </div>
+  <div>
+    <label>Description</label>
+    <textarea ng-model="newAction.description"
+              ng-disabled="savingAction">
+    </textarea>
+  </div>
+  <button>Save</button>
+</form>
+-->
+
+<ul class="content-list">
+  <li ng-repeat="action in actions">
+    <ul class="content-list-buttons">
+      <li><a>View action</a></li>
+      <li><a>Edit action</a></li>
+    </ul>
+    <h2><a>{{action.name}}</a></h2>
+    <p>slug: <strong>{{action.slug}}</strong></p>
+    <p ng-show="action.description">
+      description: <strong>{{action.description}}</strong>
+    </p>
+    <p ng-show="action.comma_separated_actions">
+      custom fields: <strong>{{action.comma_separated_actions}}</strong>
+    </p>
+  </li>
+</ul>
+<p ng-show="actions && actions.length == 0">No actions yet</p>

@@ -1,0 +1,43 @@
+<div class="content-header">
+  <h1>{{customer.name}}</h1>
+</div>
+
+<dl class="content-details">
+  <dt>Identifier</dt>
+  <dd>#{{customer.identifier}}</dd>
+  <dt>Email</dt>
+  <dd>{{customer.email}}</dd>
+</dl>
+
+<div class="content-section left-column">
+  <h4>Last 5 events</h4>
+  <ul class="content-list">
+    <li ng-repeat="event in customer.last_5_events">
+      <h2>{{event.action.name}} <span>#{{event.action.slug}}</span></h2>
+      <h3>{{formatDate(event.created_at)}}</h3>
+      <p ng-repeat="custom_field_value in event.event_custom_fields">
+        {{custom_field_value.custom_field.name}}:
+        <strong>{{custom_field_value.value}}</strong>
+      </p>
+    </li>
+  </ul>
+</div>
+
+<div class="content-section right-column">
+  <h4 ng-show="customer.added_up_info.length">Added up info</h4>
+  <dl class="content-details"
+      ng-show="customer.added_up_info.length">
+    <div ng-repeat="info in customer.added_up_info">
+      <dt>{{info.name}}</dt>
+      <dd>{{info.value}}</dd>
+    </div>
+  </dl>
+  <h4 ng-show="customer.custom_field_values.length">Current field values</h4>
+  <dl class="content-details"
+      ng-show="customer.custom_field_values.length">
+    <div ng-repeat="info in customer.custom_field_values">
+      <dt>{{info.name}}</dt>
+      <dd>{{info.value}}</dd>
+    </div>
+  </dl>
+</div>

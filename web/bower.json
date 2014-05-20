@@ -1,0 +1,20 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "homepage": "https://github.com/banafederico/surveasy",
+  "authors": [
+    "Federico Bana <me@banafederico.com>"
+  ],
+  "description": "Webapp",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "moment": "*",
+    "requirejs": "*",
+    "jquery": "*",
+    "select2": "*",
+    "angular-route": "*",
+    "angular": "*"
+  }
+}

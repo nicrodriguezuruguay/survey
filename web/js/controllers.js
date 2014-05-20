@@ -1,0 +1,11 @@
+require([
+  'controllers/application',
+  'controllers/dashboard',
+  'controllers/api',
+  'controllers/actions/list',
+  'controllers/actions/form',
+  'controllers/customers/list',
+  'controllers/customers/show',
+  'controllers/events',
+  'controllers/analysis'
+]);

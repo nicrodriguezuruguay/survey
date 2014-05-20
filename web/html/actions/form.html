@@ -1,0 +1,45 @@
+<div class="content-header">
+  <h1>New action</h1>
+  <ul class="content-header-buttons">
+    <li><a ng-click="saveAction()">Save</a></li>
+  </ul>
+</div>
+
+<form class="content-form">
+  <div>
+    <p><label>Action name</label> How do you want to call your action?</p>
+    <input ng-model="action.name" />
+  </div>
+  <div>
+    <p><label>Slug</label> This name is used to identify the action when calling the API.</p>
+    <input ng-model="action.slug" />
+  </div>
+  <div>
+    <p><label>Description</label> What does the user accomplish with this action?</p>
+    <textarea ng-model="action.description"></textarea>
+  </div>
+  <h3>Custom fields</h3>
+  <ul>
+    <li ng-repeat="customField in action.custom_fields"
+        ng-hide="customField.deleted">
+      <a class="delete" ng-click="removeCustomField(customField)"></a>
+      <div>
+        <input placeholder="Field name" ng-model="customField.name" />
+      </div>
+      <div>
+        <input placeholder="Slug" ng-model="customField.slug" />
+      </div>
+      <div>
+        <select ng-model="customField.on_event">
+          <option value="">On new event</option>
+          <option value="replace">Replace</option>
+          <option value="addup">Add up (numeric values only)</option>
+        </select>
+      </div>
+      <span class="content-tooltip"></span>
+    </li>
+    <li class="add">
+      <a ng-click="addCustomField()">+ Add another custom field</a>
+    </li>
+  </ul>
+</form>

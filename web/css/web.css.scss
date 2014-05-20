@@ -1,0 +1,97 @@
+@import 'normalize.css.scss';
+@import 'select2.css.scss';
+@import 'content-header.css.scss';
+@import 'content-form.css.scss';
+@import 'content-list.css.scss';
+@import 'content-section.css.scss';
+@import 'content-details.css.scss';
+@import 'sidebar.css.scss';
+@import 'analysis.css.scss';
+
+html, body {
+  font-family: 'Open Sans';
+}
+
+body {
+  background: #7b72d8;
+}
+
+.select2-results {
+  font-size: 0.8rem;
+  font-family: Nunito;
+  font-weight: 300;
+}
+
+main {
+  float: left;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  padding: 2.2rem 0 0;
+  margin: 0;
+
+  .sidebar, .content {
+    transition: all 0.5s;
+  }
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 2.2rem;
+    z-index: 1;
+  }
+  .content {
+    padding: 0 50px 1rem 0;
+    background: #fff;
+    left: 200px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    min-height: 300px;
+    overflow: hidden;
+  }
+
+  &.sidebar-collapsed {
+    .content {
+      left: 50px;
+    }
+  }
+}
+
+footer {
+  float: left;
+  width: 100%;
+  padding: 0 2rem 1rem;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  ul, p {
+    float: right;
+    font-size: 0.8rem;
+    font-family: Montserrat;
+  }
+  li, p {
+    margin: 0 0 0 1.5rem;
+    padding: 1rem 0 0;
+    line-height: 1rem;
+    text-align: right;
+  }
+  li {
+    float: left;
+    list-style: none;
+  }
+  a {
+    color: #f0f0f0;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+  p {
+    color: #d0d0d0;
+  }
+}

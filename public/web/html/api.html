@@ -1,0 +1,29 @@
+<div class="content-header">
+  <h1>API tokens</h1>
+</div>
+
+<!--
+<form ng-submit="saveApiToken()"
+      class="content-form">
+  <p ng-show="savingApiToken">Saving API token...</p>
+  <div>
+    <label>Name</label>
+    <input ng-model="newApiToken.name"
+           ng-disabled="savingApiToken" />
+  </div>
+  <button>Save</button>
+</form>
+-->
+
+<ul class="content-list">
+  <li ng-show="!!apiTokens && !apiTokens.length">
+    <p>There are no API tokens.</p>
+  </li>
+  <li ng-repeat="token in apiTokens">
+    <ul class="content-list-buttons">
+      <li><a ng-click="deleteApiToken(token)">Delete API token</a></li>
+    </ul>
+    <h2>{{token.name}}</h2>
+    <p>token: <strong>{{token.token}}</strong></p>
+  </li>
+</ul>

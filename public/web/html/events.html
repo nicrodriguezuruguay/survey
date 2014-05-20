@@ -1,0 +1,29 @@
+<div class="content-header">
+  <h1>Manual trigger</h1>
+  <ul class="content-header-buttons">
+    <li><a ng-click="saveEvent()">Trigger event</a></li>
+  </ul>
+</div>
+
+<form class="content-form">
+  <div>
+    <p><label>API token</label> Authenticates the account</p>
+    <input ng-model="newEvent.apiToken"
+           placeholder="f05aa4259..." />
+  </div>
+  <div>
+    <p><label>Action</label> Slug of the action you want to trigger</p>
+    <input ng-model="newEvent.action"
+           placeholder="createpurchase"/>
+  </div>
+  <div>
+    <p><label>Customer</label> Identifier of the customer who is going to be triggering the event</p>
+    <input ng-model="newEvent.customer"
+           placeholder="banafederico" />
+  </div>
+  <div>
+    <p><label>Custom params</label> Values for custom fields in JSON format</p>
+    <input ng-model="newEvent.params"
+           placeholder='{"price":"10","count":"1"}' />
+  </div>
+</form>

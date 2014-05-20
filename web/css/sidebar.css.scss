@@ -1,0 +1,78 @@
+main .sidebar {
+  padding: 0.4rem 0;
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    list-style: none;
+    font-family: Nunito;
+    font-size: 1rem;
+    padding: 0.5rem 0 0.5rem 50px;
+    height: 1.2rem;
+    white-space: nowrap;
+
+    a {
+      cursor: pointer;
+      display: block;
+      line-height: 1.5rem;
+      text-decoration: none;
+      color: #372f85;
+      position: relative;
+
+      span {
+        position: absolute;
+        left: -50px;
+        top: 0;
+        width: 50px;
+        text-align: center;
+
+        &:before {
+          font-family: FontAwesome;
+        }
+      }
+    }
+
+    &.toggle a {
+      color: #fff;
+
+      span:before {
+        content: "\f053";
+      }
+      &:hover {
+        color: #fff;
+      }
+    } &.analysis a span:before { content: "\f135"; }
+    &.dashboard a span:before { content: "\f0e4" }
+    &.customers a span:before { content: "\f004" }
+    &.actions a span:before { content: "\f124" }
+    &.api_tokens a span:before { content: "\f013" }
+    &.events a span:before { content: "\f0e7" }
+
+    a:hover {
+      color: #000;
+    }
+  }
+}
+
+main.sidebar-collapsed {
+  li.toggle {
+    a span:before {
+      content: "\f054";
+    }
+  }
+}
+
+html.dashboard main .sidebar li.dashboard a,
+html.analysis main .sidebar li.analysis a,
+html.customers main .sidebar li.customers a,
+html.customer main .sidebar li.customers a,
+html.actions main .sidebar li.actions a,
+html.api_tokens main .sidebar li.api_tokens a {
+  color: #000;
+
+  span {
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+}

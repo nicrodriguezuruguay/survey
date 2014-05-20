@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Easy surveys and data analysis - Surveasy</title>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="/normalize.css" rel="stylesheet" />
+    <link href="/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div class="padding">
+        <a href="#">Surveasy</a>
+      </div>
+    </header>
+    <main>
+      <div class="padding banner">
+        <h2>Ask the right questions and manage your customer's input like a boss.</h2>
+        <p>We'll be launching the best survey app ever this May, 2014.</p>
+      </div>
+      <form id="subscribe">
+        <div class="padding">
+          <p class="loading">Signing you up...</p>
+          <p class="finished"><strong>Thanks!</strong> You'll hear from us again :)</p>
+          <label>Sign up for news and special pre-launch offers</label>
+          <input id="name" placeholder="Your name" />
+          <input type="email" id="email" placeholder="Email address" />
+          <button>Subscribe</button>
+        </div>
+      </form>
+    </main>
+    <footer>
+      <div class="padding">
+        <p>&copy; Surveasy - 2014</p>
+      </div>
+    </footer>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+      $('#subscribe').submit(function(evt) {
+        evt.preventDefault();
+
+        var form = $(this);
+        form.addClass('loading');
+ 
+        $.ajax({
+            url: 'https://easysurveys.uservoice.com/api/v1/tickets/create_via_jsonp.json?callback=?',
+            dataType: 'jsonp',
+            data: {
+                client: "8fVdT7m4Y2H4VE4elCOsQ",
+                ticket: {
+                    message: 'I want to sign up',
+                    subject: 'Sign me up'
+                },
+                name: $('#name').val() || 'Anonymous user',
+                email: $('#email').val()
+            },
+            success: function(data) {
+              form.addClass('finished');
+            },
+        });
+        return false;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-controller="ApplicationController" ng-class="bodyClass">
+  <head>
+    <title>Surveys</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="web.css" />
+  </head>
+  <body>
+    <main ng-class="{ 'sidebar-collapsed': sidebarCollapsed }">
+      <div class="sidebar">
+        <ul>
+          <li class="toggle">
+            <a ng-click="toggleSidebar()"><span></span></a>
+          </li>
+          <li class="dashboard">
+            <a href="#/"><span></span>Dashboard</a>
+          </li>
+          <li class="analysis">
+            <a href="#/analysis"><span></span>Analysis</a>
+          </li>
+          <li class="customers">
+            <a href="#/customers"><span></span>Customers</a>
+          </li>
+          <li class="actions">
+            <a href="#/actions"><span></span>Actions</a>
+          </li>
+          <li class="api_tokens">
+            <a href="#/api"><span></span>API tokens</a>
+          </li>
+        </ul>
+        <ul>
+          <li class="events">
+            <a href="#/events"><span></span>Manual trigger</a>
+          </li>
+        </ul>
+      </div> <!-- .sidebar -->
+      <div class="content">
+        <div ng-view></div>
+        <div style="clear: both;"></div>
+      </div> <!-- .content -->
+    </main>
+    <footer>
+      <ul>
+        <li><a>Privacy</a></li>
+        <li><a>Terms</a></li>
+        <li><a>Help</a></li>
+      </ul>
+      <p>&copy; 2014 - Analytics, All rights reserved.</p>
+    </footer>
+    <script src="web.js"></script>
+  </body>
+</html>

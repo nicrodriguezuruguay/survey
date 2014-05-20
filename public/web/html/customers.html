@@ -1,0 +1,41 @@
+<div class="content-header">
+  <h1>Customers</h1>
+  <ul class="content-header-buttons">
+    <li><a ng-click="showNewCustomerForm = true">New customer</a></li>
+  </ul>
+</div>
+
+<form ng-submit="saveCustomer()"
+      class="content-form"
+      ng-class="{ open: showNewCustomerForm }">
+  <div>
+    <label>Identifier</label>
+    <input ng-model="newCustomer.identifier"
+           ng-disabled="savingCustomer" />
+  </div>
+  <div>
+    <label>Name</label>
+    <input ng-model="newCustomer.name"
+           ng-disabled="savingCustomer" />
+  </div>
+  <div>
+    <label>Email</label>
+    <input ng-model="newCustomer.email"
+           ng-disabled="savingCustomer" />
+  </div>
+  <button>Save</button>
+</form>
+
+<ul class="content-list"
+    ng-class="{ moved: showNewCustomerForm }">
+  <li ng-repeat="customer in customers">
+    <ul class="content-list-buttons">
+      <li><a ng-href="#/customers/{{customer.id}}">View details</a></li>
+    </ul>
+    <h2><a ng-href="#/customers/{{customer.id}}">{{customer.name}}</a></h2>
+    <p>identifier: <strong>{{customer.identifier}}</strong></p>
+    <p>email: <strong>{{customer.email}}</strong><p>
+  </li>
+</ul>
+
+<p ng-show="customers && customers.length == 0">No customers yet.</p>

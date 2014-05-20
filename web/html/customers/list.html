@@ -1,0 +1,18 @@
+<div class="content-header">
+  <h1>Customers</h1>
+</div>
+
+<ul class="content-list"
+    ng-class="{ moved: showNewCustomerForm }">
+  <li ng-repeat="customer in customers">
+    <ul class="content-list-buttons">
+      <li><a ng-href="#/customers/{{customer.id}}">View details</a></li>
+    </ul>
+    <h2>
+      <a ng-href="#/customers/{{customer.id}}">{{customer.name}} <span>#{{customer.identifier}}</span></a>
+    </h2>
+    <h3>{{customer.email}}</h3>
+  </li>
+</ul>
+
+<p ng-show="customers && customers.length == 0">No customers yet.</p>

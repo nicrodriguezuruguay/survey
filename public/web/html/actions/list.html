@@ -1,0 +1,25 @@
+<div class="content-header">
+  <h1>Actions</h1>
+  <ul class="content-header-buttons">
+    <li><a href="#/actions/new">New action</a></li>
+  </ul>
+</div>
+
+<ul class="content-list">
+  <li ng-repeat="action in actions">
+    <ul class="content-list-buttons">
+      <li>
+        <a ng-href="#/actions/{{action.id}}/edit">
+          Edit action
+        </a>
+      </li>
+    </ul>
+    <h2>
+      <a ng-href="#/actions/{{action.id}}/edit">{{action.name}} <span>#{{action.slug}}</span></a>
+    </h2>
+    <h3 ng-show="action.description">{{action.description}}</h3>
+    <p ng-show="action.comma_separated_actions">
+      Custom fields: <strong>{{action.comma_separated_actions}}</strong>
+    </p>
+  </li>
+</ul>

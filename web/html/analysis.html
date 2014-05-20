@@ -1,0 +1,30 @@
+<div class="content-header">
+  <h1>Analysis</h1>
+</div>
+
+<form>
+  <label>Show users who performed the following action:</label>
+  <ul>
+    <li ng-repeat="flowAction in flowActions">
+      <select2 ng-options="action.id as action.name for action in actions"
+               ng-model="analysis.action_id"
+               ng-change="runAnalysis()">
+      </select2>
+    </li>
+  </ul>
+</form>
+
+<h3>Customers</h3>
+<ul class="content-list">
+  <li ng-repeat="customer in result.customers">
+    <h2>{{customer.name}}</h2>
+    <p>{{customer.percentage}}%</p>
+  </li>
+</ul>
+<h3>Next actions</h3>
+<ul class="content-list">
+  <li ng-repeat="followup in result.followups">
+    <h2>{{followup.name}}</h2>
+    <p>{{followup.percentage}}%</p>
+  </li>
+</ul>
