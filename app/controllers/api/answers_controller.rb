@@ -6,7 +6,7 @@ class Api::AnswersController < ApplicationController
     @params = permitted_params[:answer]
     #@answer=Question.find_by name: (params[:name])
 
-    @questionExist = Question.find(params[:question_id])
+    @questionExist = Question.find_by(id: params[:question_id])
     #BUSCO SI EXISTE LA ENCUESTA PARA AGREGAR LA PREGUNTA,
     #SI EXISTE LA AGREGA SINO DA ERROR 404
     unless @questionExist.nil?
@@ -17,7 +17,7 @@ class Api::AnswersController < ApplicationController
     	end
 
     else
-     	render status: 400, json: { errors: @answer.errors.full_messages }
+     	render :text => "No existe la pregunta", :status => 404
    	end
   end
 

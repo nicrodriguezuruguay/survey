@@ -3,7 +3,7 @@ class Api::SurveysController < ApplicationController
   end
   def show
     @survey = Survey.first
-    @survey = @survey.find(params[:id])
+    @survey = @survey.find_by(id:params[:id])
   end
 
   def create
@@ -36,7 +36,7 @@ class Api::SurveysController < ApplicationController
 
   def destroy
     @user = Survey.first
-    user = @user.find(params[:id])
+    user = @user.find_by(id: params[:id])
     user.destroy
     render json: {}
   end

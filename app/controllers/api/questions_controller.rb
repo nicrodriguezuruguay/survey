@@ -6,7 +6,7 @@ class Api::QuestionsController < ApplicationController
     @params = permitted_params[:question]
     #@question=Question.find_by name: (params[:name])
 
-    @surveyExist = Survey.find(params[:surveasy_id])
+    @surveyExist = Survey.find_by(id: params[:surveasy_id])
     #BUSCO SI EXISTE LA ENCUESTA PARA AGREGAR LA PREGUNTA,
     #SI EXISTE LA AGREGA SINO DA ERROR 404
     unless @surveyExist.nil?

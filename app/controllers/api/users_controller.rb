@@ -31,14 +31,14 @@ class Api::UsersController < ApplicationController
 
         end
     else #Si el usuario ya existe tira este error
-      render :text => "El usuario no existe", :status => 404
+      render :text => "El usuario existe", :status => 404
     end
   end
 
 
 
   def destroy
-    user = User.find(params[:id])
+    user = User.find_by(id: params[:id])
     user.destroy
     render json: {}
   end
